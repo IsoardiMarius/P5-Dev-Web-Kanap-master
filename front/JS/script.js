@@ -1,12 +1,15 @@
 // Récuperer tout les produits sur la page d'accueil
 
-   const items = document.getElementById("items");
-    fetch("http://localhost:3000/api/products/")
-     .then((response) => {
-       if (response.ok) {
+const items = document.getElementById("items");
 
-           /*return*/ response.json()
-               .then((products) => {
+    fetch
+("http://localhost:3000/api/products/")
+    .then((response) => {
+        if (response.ok) {
+
+            /*return*/
+            response.json()
+                .then((products) => {
                     for (let product of products) {
                         items.innerHTML += `<a href="./product.html?id=${product._id}">
                         <article>
@@ -19,13 +22,15 @@
                     }
 
                 })
-               .catch((error) => {
-                   console.log("Le produit n'est pas disponible")
-               })
+                .catch((error) => {
+                    console.log("Le produit n'est pas disponible")
+                })
         }
 
-    })  .catch((error) => {
-        console.log("Le serveur ne répond pas")
-    })
+    }).catch((error) => {
+    console.log("Le serveur ne répond pas")
+})
+
+
 
 
