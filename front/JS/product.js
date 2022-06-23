@@ -26,25 +26,35 @@ fetch("http://localhost:3000/api/products/" + productId)
                 })
 
         }
+
     })
+
 
 const btnAdd = document.querySelector("#addToCart")
 const color = document.querySelector("#colors")
 const quantity = document.querySelector("#quantity")
 const price = document.querySelector("#price")
 
-
 btnAdd.addEventListener('click', e => {
     if (quantity.value > 0 && quantity.value < 100) {
-        addToCart(productId, color.value, quantity.value)
+        const productOptions = {
+            id: productId,
+            color: color.value,
+            quantity: quantity.value
+        }
+            addToCart(JSON.stringify(productOptions))
+
     }
-    // const productOptions = {
-    //     id : productId,
-    //     color : color,
-    //     quantity : quantity,
-    //     price : price
-    //
-    // }
+
+
+
+
+
+
+
+
+
+
     //pour les données regarde bien la structure que j'ai mis dans le fichier localStorage
     //si tu mets en place le script localStorage avant celui-ci sur la page product.html
     //tu pourras accéder aux fonctions du script
