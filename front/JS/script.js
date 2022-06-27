@@ -1,16 +1,19 @@
-// Récuperer tout les produits sur la page d'accueil
+////////////////////////////////////////////////////////////////
+// Afficher tous les produits sur la page d'accueil ////////////////////
+////////////////////////////////////////////////////////////////
 
+// On récupère l'élément items pour y injecter les produits
 const items = document.getElementById("items");
 
-fetch
-("http://localhost:3000/api/products/")
+//Appel api
+fetch("http://localhost:3000/api/products/")
     .then((response) => {
         if (response.ok) {
 
-            /*return*/
             response.json()
                 .then((products) => {
                     for (let product of products) {
+                        // On injecte les infos du produit dans le html
                         items.innerHTML += `<a href="./product.html?id=${product._id}">
                         <article>
                           <img src="${product.imageUrl}" alt="${product.altTxt}">
