@@ -1,7 +1,6 @@
-// Afficher le numéro de commande
+///// Afficher le numéro de commande /////
 // On récupère l'id dans l'url
 const id = (new URL(location)).searchParams.get("id");
-console.log(id)
 
 // On injecte le numéro de commande
 const orderId = document.getElementById("orderId");
